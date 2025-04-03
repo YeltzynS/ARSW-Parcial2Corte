@@ -9,11 +9,17 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component
+@Qualifier("Stub")
 public class RestaurantOrderServicesStub implements RestaurantOrderServices {
-
     
-    BillCalculator calc = null;
+    @Autowired
+    @Qualifier("Taxes")
+    BillCalculator calc;
 
     public RestaurantOrderServicesStub() {
     }
